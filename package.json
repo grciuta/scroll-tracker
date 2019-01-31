@@ -21,5 +21,17 @@
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grciuta/scroll-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grciuta/scroll-tracker/issues"
+  },
+  "homepage": "https://github.com/grciuta/scroll-tracker#readme"
 }
