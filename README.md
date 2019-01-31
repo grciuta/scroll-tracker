@@ -18,21 +18,22 @@ Initialize your tracker component like:
 // your imports
 import ScrollTracker from 'scroll-tracker';
 // ... some code maybe...
-const scrollTracker = new ScrollTracker('#tracker');
+const scrollTracker = new ScrollTracker('#tracker', 'width');
 // ... and other additional props can be applyed to component (more about it in Props section) ...
-// ... Also feel free to checkout example inside of a package ...
+// ... Also feel free to checkout example inside of a package (example/index.html & exm/example.js) ...
 ```
 
 ## Props
 
-| Property | Meaning | Example |
-| ---- | ---- | -----:|
-| *selector* | Selector of `tracker` instance in HTML | `#tracker` |
-| *scrollColors* | JSON object witch consists of percentage number of scrolled length & color which should be appled  | `{0: "red", 25: "rgb(0, 0, 0)", 50: "rgba(0, 0, 0, 0.5)", 75: #ff0000, 100: "green"}` |
-| *trackHeadingsItemSelector* | Selector for additional component to display section name on scroll | `#tracker--section` |
-| *trackHeadingsSelector* | Selector for elements (usaly *h$ (headers)*) to track on which section is currently scrolled on | `.tracker--heading` |
-| *headingChangeEvent* | Function, which is executed when content of section header will change. (**item** represents header tracking DOM; **event(fn)** represents function, which will change headings tracking DOM content to the next one and if some function is passed to it, after the change it will be executed.) | `(item, event) => {}` |
-| *hideOnScrolledToTop* | Hides *heading* tracking element, when user scrolls to top | `true/false` |
+| Property | Meaning | Example | Required |
+| ---- | ---- | -----:| ---- |
+| *selector* | Selector of `tracker` instance in HTML | `#tracker` | - [x] |
+| *behaviour* | Defines what property of tracker should change on scroll (**width** or **height** can be accepted) | `width` | - [x] |
+| *scrollColors* | JSON object witch consists of percentage number of scrolled length & color which should be appled  | `{0: "red", 25: "rgb(0, 0, 0)", 50: "rgba(0, 0, 0, 0.5)", 75: #ff0000, 100: "green"}` | - [] |
+| *trackHeadingsItemSelector* | Selector for additional component to display section name on scroll | `#tracker--section` | - [] |
+| *trackHeadingsSelector* | Selector for elements (usaly *h$ (headers)*) to track on which section is currently scrolled on | `.tracker--heading` | - [] |
+| *headingChangeEvent* | Function, which is executed when content of section header will change. (**item** represents header tracking DOM; **event(fn)** represents function, which will change headings tracking DOM content to the next one and if some function is passed to it, after the change it will be executed.) | `(item, event) => {}` | - [] |
+| *hideOnScrolledToTop* | Hides *heading* tracking element, when user scrolls to top | `true/false` | - [] |
 
 ## Examples
 ### Simple scroll tracker with changing background
@@ -46,7 +47,7 @@ const scrollTracker = new ScrollTracker('#tracker');
 ```js
     import ScrollTracker from 'scroll-tracker';
     // ...
-    const st = new ScrollTracker('#tracker', {
+    const st = new ScrollTracker('#tracker', 'width', {
         0: "red",
         10: "green",
         20: "blue",
@@ -91,7 +92,7 @@ const scrollTracker = new ScrollTracker('#tracker');
     // * do something before content change.
     // * trigger change event (which will change content).
     //   - on triggering, you can pass function, which will be executed after content change.
-    const st = new ScrollTracker('#tracker', {
+    const st = new ScrollTracker('#tracker', 'width', {
         0: "red",
         10: "green",
         20: "blue",
@@ -118,3 +119,6 @@ const scrollTracker = new ScrollTracker('#tracker');
     }, true);
     // boolean on end of constructor is a notation to hide heading tracker DOM when user reaches very top of first section or above it.
 ```
+
+## Styling of tracker bar
+All styling depends on you how it will be presented, where & etc.

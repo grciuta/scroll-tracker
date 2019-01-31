@@ -1,6 +1,6 @@
 import ScrollTracker from '../src/index';
 
-const st = new ScrollTracker('#tracker', {
+const st = new ScrollTracker('#tracker', 'width', {
     0: "red",
     10: "green",
     20: "blue",

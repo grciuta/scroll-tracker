@@ -1,5 +1,6 @@
 export default class ScrollTracker {
     constructor(selector,
+                behaviour = 'width',
                 scrollColors = {},
                 trackHeadingsItemSelector = '',
                 trackHeadingsSelector = '',
@@ -7,6 +8,7 @@ export default class ScrollTracker {
                 hideOnScrolledToTop = true,
     ) {
         this.item = document.querySelector(selector);
+        this.behaviour = behaviour;
         this.headingItem = trackHeadingsItemSelector !== '' ? document.querySelector(trackHeadingsItemSelector) : null;
         this.trackHeadings = trackHeadingsSelector;
         this.currentHeader = null;
@@ -14,8 +16,12 @@ export default class ScrollTracker {
         this.headingChangeEvent = headingChangeEvent;
         this.hideOnTop = hideOnScrolledToTop;
         this.hideOnTopHidden = false;
-        if (this.item === null) {
-            console.warn(`ScrollTracker not found by #${id}!`);
+        if (this.item === null || !(this.behaviour === 'width' || this.behaviour === 'height')) {
+            if (this.item === null) {
+                console.warn(`ScrollTracker not found by #${id}!`);
+            } else {
+                console.warn(`ScrollTracker behaviour can only be width or height, got: '${this.behaviour}'!`);    
+            }
             return;
         }
         this.body = document.body,
@@ -32,7 +38,7 @@ export default class ScrollTracker {
         const bodyHeight = Math.max(this.body.scrollHeight, this.body.offsetHeight, this.html.clientHeight, this.html.scrollHeight, this.html.offsetHeight) - this.windowSize.height;
         let scrolled = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
         const prc = Math.floor((scrolled * 100) / bodyHeight);
-        this.item.style.width = `${prc}%`;
+        this.item.style[this.behaviour] = `${prc}%`;
         Object.keys(this.scrollColors).forEach(percent => {
             if (percent.toString() === prc.toString()) {
                 this.item.style.backgroundColor = this.scrollColors[percent];
