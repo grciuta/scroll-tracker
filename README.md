@@ -44,7 +44,7 @@ const scrollTracker = new ScrollTracker('#tracker');
 ```
 
 ```js
-    import ScrollTracker from '../src/index';
+    import ScrollTracker from 'scroll-tracker';
     // ...
     const st = new ScrollTracker('#tracker', {
         0: "red",
@@ -79,7 +79,7 @@ const scrollTracker = new ScrollTracker('#tracker');
 ```
 
 ```js
-    import ScrollTracker from '../src/index';
+    import ScrollTracker from 'scroll-tracker';
     // ...
     // '#tracker--section' is a div selector, which content will be changed by h2 DOM content when user scrolls on it
     // '.tracking--heading' is a DOM elements selector
@@ -115,5 +115,6 @@ const scrollTracker = new ScrollTracker('#tracker');
                 item.style.opacity = 1;
             });
         }, 150);
-    });
+    }, true);
+    // boolean on end of constructor is a notation to hide heading tracker DOM when user reaches very top of first section or above it.
 ```
