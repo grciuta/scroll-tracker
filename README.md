@@ -1,4 +1,4 @@
-# scroll-tracker
+# content-scroll-tracker
 
 ## About
 
@@ -8,7 +8,7 @@ Widget is used to track & display user scrolled content percentage.
 
 ## Install
 
-`npm install scroll-tracker`
+`npm install content-scroll-tracker`
 
 ## Usage
 
