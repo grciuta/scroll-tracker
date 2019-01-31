@@ -24,8 +24,8 @@ export default class ScrollTracker {
             height: window.innerHeight,
             width: window.innerWidth,
         };
-        window.onscroll = this.windowScroll.bind(this);
-        window.onresize = this.windowResize.bind(this);
+        window.addEventListener('scroll', this.windowScroll.bind(this));
+        window.addEventListener('resize', this.windowResize.bind(this));
     }
 
     windowScroll() {
