@@ -16,9 +16,9 @@ Initialize your tracker component like:
 
 ```js
 // your imports
-import ScrollTracker from 'scroll-tracker';
+import ContentScrollTracker from 'content-scroll-tracker';
 // ... some code maybe...
-const scrollTracker = new ScrollTracker('#tracker', 'width');
+const scrollTracker = new ContentScrollTracker('#tracker', 'width');
 // ... and other additional props can be applyed to component (more about it in Props section) ...
 // ... Also feel free to checkout example inside of a package (example/index.html & exm/example.js) ...
 ```
@@ -45,9 +45,9 @@ const scrollTracker = new ScrollTracker('#tracker', 'width');
 ```
 
 ```js
-    import ScrollTracker from 'scroll-tracker';
+    import ContentScrollTracker from 'content-scroll-tracker';
     // ...
-    const st = new ScrollTracker('#tracker', 'width', {
+    const st = new ContentScrollTracker('#tracker', 'width', {
         0: "red",
         10: "green",
         20: "blue",
@@ -80,11 +80,11 @@ const scrollTracker = new ScrollTracker('#tracker', 'width');
 ```
 
 ```js
-    import ScrollTracker from 'scroll-tracker';
+    import ContentScrollTracker from 'content-scroll-tracker';
     // ...
     // '#tracker--section' is a div selector, which content will be changed by h2 DOM content when user scrolls on it
     // '.tracking--heading' is a DOM elements selector
-    const st = new ScrollTracker('#tracker', {}, '#tracker--section',  '.tracker--heading');
+    const st = new ContentScrollTracker('#tracker', {}, '#tracker--section',  '.tracker--heading');
 
     // Also if you want to add some animating through CSS classes
     // (or as in this particular case JS)
@@ -92,7 +92,7 @@ const scrollTracker = new ScrollTracker('#tracker', 'width');
     // * do something before content change.
     // * trigger change event (which will change content).
     //   - on triggering, you can pass function, which will be executed after content change.
-    const st = new ScrollTracker('#tracker', 'width', {
+    const st = new ContentScrollTracker('#tracker', 'width', {
         0: "red",
         10: "green",
         20: "blue",

@@ -1,5 +1,5 @@
 {
-  "name": "scroll-tracker",
+  "name": "content-scroll-tracker",
   "version": "1.0.0",
   "description": "Package for implementing scroll positition.",
   "main": "lib/index.js",

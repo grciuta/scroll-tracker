@@ -1,4 +1,4 @@
-export default class ScrollTracker {
+export default class ContentScrollTracker {
     constructor(selector,
                 behaviour = 'width',
                 scrollColors = {},
